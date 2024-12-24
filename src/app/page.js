@@ -8,6 +8,9 @@ export default function Home() {
     <Card/>
     <Card/>
     <Card/>
-    </div>
+    <Card/>
+    <Card/>
+    
+  </div>
   );
 }

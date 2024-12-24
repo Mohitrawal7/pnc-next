@@ -1,9 +1,8 @@
 
 
-
-
-function Create() {
+function EditPage() {
     return(
+
 
         <div className="mx-14 mt-10 border-2 border-blue-400 rounded-lg">
         <div className="mt-10 text-center font-bold">Create a recipe</div>
@@ -29,8 +28,10 @@ function Create() {
           </div>
         </div>
       </div>
+
+
     )
 
-
 }
-export default Create
+
+export default EditPage

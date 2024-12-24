@@ -1,7 +1,10 @@
+import Link from "next/link"
+
 function Card(){
 
 return(
 
+<Link href="/2">
 <div className="flex px-3 py-3">
     <div className="max-w-sm rounded overflow-hidden shadow-lg">
         <img className="w-full" src="https://tailwindcss.com/img/card-top.jpg" alt="Sunset in the mountains"/>
@@ -20,6 +23,7 @@ return(
     </div>
 </div>
 
+</Link>
 
 )
 
