@@ -10,7 +10,9 @@ export default function Home() {
     <Card/>
     <Card/>
     <Card/>
-    
+    <Card/>
   </div>
   );
 }
+
+//postgresql://postgres.zgmkdnqiujytxyohvxwb:[YOUR-PASSWORD]@aws-0-ap-south-1.pooler.supabase.com:6543/postgres
