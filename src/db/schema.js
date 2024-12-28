@@ -1,6 +1,6 @@
 import { sql } from "drizzle-orm";
-import { serial, text, timestamp, varchar } from "drizzle-orm/mysql-core";
-import { pgTable } from "drizzle-orm/pg-core";
+//import { serial, text, timestamp, varchar } from "drizzle-orm/mysql-core";
+import { pgTable,serial, text, timestamp, varchar } from "drizzle-orm/pg-core";
 
 export const recipes = pgTable("recipes",{
     id :serial("id").primaryKey(),

@@ -16,3 +16,4 @@ export default function Home() {
 }
 
 //postgresql://postgres.zgmkdnqiujytxyohvxwb:[YOUR-PASSWORD]@aws-0-ap-south-1.pooler.supabase.com:6543/postgres
+//bBCsVn6yL2OdagIi
