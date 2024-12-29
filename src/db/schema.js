@@ -8,3 +8,4 @@ export const recipes = pgTable("recipes",{
     description: text("description").notNull(),
     createdAt : timestamp("created_at").default(sql`CURRENT_TIMESTAMP`)
 })
+
