@@ -6,10 +6,11 @@ import { eq } from "drizzle-orm"
 
 
 
-export async function GET(request,urlbataAAKOData){
-    const id = await urlbataAAKOData.params.id*1
+export async function GET(request,urlBataAakoData){ 
+    const {params} = await urlBataAakoData.json();
+    const id = parseInt(params.id,1)
   try{
-  let recipe = await db.select().from(recipes).where(eq(recipes.id,id))
+    let recipe = await db.select().from(recipes).where(eq(recipes.id,id))
      if(recipe.length == 0){
         return Response.json({
             message : "no recipe found"
@@ -27,7 +28,8 @@ return Response.json({
 }
 
 export async function DELETE(request,urlBataAakoData){
-    const id = urlBataAakoData.params.id * 1
+    const {params} = await urlBataAakoData;
+    const id = parseInt(params.id,1)
     try {
         await db.delete(recipes).where(eq(recipes.id,id))
         return Response.json({

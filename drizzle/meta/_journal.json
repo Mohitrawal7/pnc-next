@@ -22,6 +22,20 @@
       "when": 1735486504620,
       "tag": "0002_abandoned_stingray",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1735830385857,
+      "tag": "0003_bent_skreet",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1735830728919,
+      "tag": "0004_cuddly_scarecrow",
+      "breakpoints": true
     }
   ]
 }

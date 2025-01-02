@@ -13,7 +13,7 @@ export async function POST(request) {
     try{
     await db.insert(recipes).values(data)
     return Response.json({
-        message
+        message : "Posted successfully"
     })
     } catch(error){
      return Response.json({
