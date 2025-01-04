@@ -24,7 +24,7 @@ export default async function Home() {
   const {recipes} = await fetchRecipes() 
  
   return (  
-    <div className="flex flex-wrap">
+    <div className="flex flex-wrap justify-evenly">
 {
   recipes.map((recipe)=>{
     return(

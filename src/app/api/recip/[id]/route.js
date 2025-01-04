@@ -3,33 +3,29 @@ import { db } from "../../../../db/db"
 import { eq } from "drizzle-orm"
 
 
+export async function GET(request,urlBataAakoData){
 
-
-
-export async function GET(request,urlBataAakoData){ 
-    const {params} = await urlBataAakoData.json();
-    const id = parseInt(params.id,1)
-  try{
-    let recipe = await db.select().from(recipes).where(eq(recipes.id,id))
-     if(recipe.length == 0){
+    const id = await urlBataAakoData.params.id * 1 // "2" * 1 = 2
+    try {
+        let recipe = await db.select().from(recipes).where(eq(recipes.id,id)) // always returns in array
+        if(recipe.length == 0){
+            return Response.json({
+                message : "no recipe found with that id"
+            },{status:404})
+        }
         return Response.json({
-            message : "no recipe found"
-        },{status:404})
-     }
-     return Response.json({
-        message : "Data fetched",
-        recipe 
-    },{status:200})
-} catch(error){
-return Response.json({
-    message : error.message
-},{status:500})
-  }
+            message : "Data fetched successfully", 
+            recipe
+        },{status:200})
+    } catch (error) {
+        return Response.json({
+            message : error.message
+        },{status:500})
+    }
 }
 
 export async function DELETE(request,urlBataAakoData){
-    const {params} = await urlBataAakoData;
-    const id = parseInt(params.id,1)
+    const id = await urlBataAakoData.params.id * 1
     try {
         await db.delete(recipes).where(eq(recipes.id,id))
         return Response.json({

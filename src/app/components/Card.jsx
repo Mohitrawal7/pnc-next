@@ -1,7 +1,7 @@
 import Link from "next/link"
 
 function Card({recipe}){
-console.log(recipe)
+
 return(
 
 <Link href={`/${recipe?.id}`}>
