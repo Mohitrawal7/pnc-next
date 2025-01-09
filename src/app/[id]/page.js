@@ -31,8 +31,10 @@ async function SinglePage({params}){
                        <button className="w-full bg-gray-900 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700">Edit</button>
                        </Link>
                     </div>
+
             <DeleteButton recipeId={recipeId} />
-                </div>
+
+               </div>
             </div>
             <div className="md:flex-1 px-4">
                 <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">{recipe?.name}</h2>

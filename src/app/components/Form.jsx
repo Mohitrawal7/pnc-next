@@ -3,7 +3,9 @@
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 
-function Form(){
+function Form({type}){
+
+
   const router = useRouter()
   const [data,setData] = useState({
     name : "", 
@@ -21,6 +23,7 @@ function Form(){
   
   const handleSubmit = async (e)=>{
     e.preventDefault()
+    if(type === 'Create'){
    try {
     const response = await fetch("/api/recip",{
       method : 'POST', 
@@ -38,11 +41,31 @@ function Form(){
    } catch (error) {
     console.log(error)
    }
+  } else{
+    try {
+      const response = await fetch("/api/recip",{
+        method : 'PUT', 
+        headers : {
+          "Content-Type" : "application/json"
+        }, 
+        body : JSON.stringify(data)
+      })
+     
+      if(!response.ok){
+        throw new Error("Failed to edit recipe")
+      }
+      alert("Recipe edited successfully")
+      router.push("/")
+     } catch (error) {
+      console.log(error)
+     }
+  }
+
 
   }
     return ( 
         <div className="mx-14 mt-10 border-2 border-blue-400 rounded-lg">
-        <div className="mt-10 text-center font-bold">Create Recipe</div>
+        <div className="mt-10 text-center font-bold">{type} Recipe</div>
         <div className="mt-3 text-center text-4xl font-bold">Make a Recipe</div>
         <div className="p-8">
       <form onSubmit={handleSubmit}>
@@ -55,7 +78,7 @@ function Form(){
             <textarea name="description" id="text" cols="30" rows="10" className="mb-10 h-40 w-full resize-none rounded-md border border-slate-300 p-5 font-semibold text-gray-600" defaultValue="Message" onChange={handleInputChange}></textarea>
           </div>
           <div className="text-center">
-            <button className="cursor-pointer rounded-lg bg-blue-700 px-8 py-5 text-sm font-semibold text-white">Create Recipe</button>
+            <button className="cursor-pointer rounded-lg bg-blue-700 px-8 py-5 text-sm font-semibold text-white">{type} Recipe</button>
           </div>
       </form>
         </div>
